@@ -97,7 +97,7 @@ Hive stores data in a simple Key:Value model. If no key is provided hive will si
 
 A simple example
 
-`example.dart
+`example.dart`
 ```
 void main() async {
   Hive.init('./'); 
