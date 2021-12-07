@@ -91,7 +91,7 @@ class Quote {
 
 To generate the adapter run `flutter pub run build_runner build` from the command line in the root of the project. 
 
-## Reading an writing objects
+## Reading and writing objects
 
 Hive stores data in a simple Key:Value model. If no key is provided hive will simply use an auto incrementing index id for the key. It's recomended that you provide your own key. 
 
