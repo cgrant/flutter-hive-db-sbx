@@ -7,7 +7,7 @@ This example explores the use of [HiveDB](https://docs.hivedb.dev/) for local st
 
 HiveDB requires four entries in your `pubspec.yaml`. Two belong under the standard dependencies section and another 2 are required in the dev section. These last two are used to generate the adapters from the command line
 
-```
+```yaml
 dependencies:
   flutter:
     sdk: flutter
@@ -32,7 +32,7 @@ In both flutter and Dart you need to initialize the database and register adapte
 In the dart example the entry looks like the following
 
 `example.dart`
-```
+```dart
 void main() async {
   Hive.init('./'); 
 
@@ -47,7 +47,7 @@ void main() async {
 in the flutter example it looks like this
 
 `main.dart`
-```
+```dart
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -71,7 +71,7 @@ In order work correctly you need to annontate your object at the class and field
 
 Finnally the model should reference the generated TypeAdapter, in this case `quoteModel.g.dart`. This will produce an error until you actually generate the adapter and thats fine. 
 
-```
+```dart
 import 'package:hive/hive.dart';
 part 'quoteModel.g.dart';
 
@@ -98,7 +98,7 @@ Hive stores data in a simple Key:Value model. If no key is provided hive will si
 A simple example
 
 `example.dart`
-```
+```dart
 void main() async {
   Hive.init('./'); 
   Hive.registerAdapter(UserAdapter());
@@ -117,7 +117,7 @@ void main() async {
 To automatically update views anytime data is changed in the DB use `ValueListenableBuilder` to wacth the data
 
 `quotePage.dart`
-```
+```dart
 Widget buildBody() {
     return ValueListenableBuilder<Box<Quote>>(
       valueListenable: Quote.quotesDB().listenable(),
